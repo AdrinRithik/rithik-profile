@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITZ ADRIN RITHIK</title>
+    <!-- Use Dancing Script for a handwritten look -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-glow: rgba(255, 255, 255, 0.3);
+            --accent-color: #2e7d32;
+            /* Earthy green accent */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Dancing Script', cursive;
+            overflow: auto;
+            /* Allow scrolling if needed since we added space at bottom */
+            background-color: #1a1a1a;
+        }
+
+        .hero-container {
+            position: relative;
+            width: 100%;
+            /* Leave space at the bottom by reducing the height */
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* Add a nice nature-colored border at the bottom */
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Using a relative path for the nature background image */
+            background-image: url('./nature_background.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            /* Filter to make the background slightly darker so text pops */
+            filter: brightness(0.85) saturate(1.1);
+            transition: transform 0.5s ease-out;
+            /* Slow, smooth zoom effect */
+            animation: zoomIn 25s infinite alternate linear;
+        }
+
+        .overlay {
+            display: none;
+        }
+
+        .content-box {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            /* Change text color to match nature image - dark green */
+            color: white;
+            padding: 4rem 6rem;
+            animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(50px);
+
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px) scale(1.02);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        h1 {
+            color: white;
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            margin-bottom: 1.5rem;
+            /* Lighter shadow since text is dark */
+            /* Nature gradient text (greens/yellows) */
+            -webkit-background-clip: text;
+            background-clip: text;
+            line-height: 1.1;
+
+        }
+
+        p {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: white;
+            /* Nature green text */
+            text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.4);
+            opacity: 0.95;
+            position: relative;
+            display: inline-block;
+            /* Base requirement: "a python programmer" */
+        }
+
+        p::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -10px;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .content-box:hover p::after {
+            width: 100%;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+            }
+
+            .content-box {
+                padding: 3rem 4rem;
+                width: 85%;
+            }
+
+            .class5 {
+                width: 85%;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .class5 video,
+            .class5 img {
+                margin-right: 0 !important;
+                margin-bottom: 20px;
+            }
+
+            .class5 .challenge-btn {
+                margin: 20px auto 0 auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            p {
+                font-size: 1rem;
+                letter-spacing: 0.5px;
+            }
+
+            h1[style*="turquoise"] {
+                font-size:50px !important;
+                margin-top: 40px !important;
+                margin-bottom: 30px !important;
+            }
+
+            .content-box {
+                padding: 1.5rem 1rem;
+                width: calc(100% - 40px);
+                margin: 0 auto;
+            }
+
+            .class5 {
+                width: calc(100% - 40px);
+                margin: 0 auto;
+            }
+
+            .class5 p,
+            .class3 {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .class55 {
+                margin-bottom: 40px;
+                width: calc(100% - 40px);
+                margin: 0 auto 40px auto;
+            }
+
+            .class4 {
+                font-size: 24px;
+                padding-bottom: 15px;
+            }
+
+            .logo-circle {
+                width: 180px;
+                height: 180px;
+            }
+
+            .class2 img {
+                height: 200px;
+                max-width: 100%;
+            }
+
+            .class5 video {
+                height: 200px;
+                max-width: 100%;
+            }
+
+            .challenge-btn {
+                font-size: 18px;
+                padding: 10px 24px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .animated-footer {
+                padding: 50px 20px;
+            }
+
+            .footer-content {
+                font-size: 1rem;
+            }
+        }
+
+        .class2 {
+            border-radius: 50%;
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+
+
+        }
+
+        .class3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 70px;
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+
+        .class4 {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+            color: turquoise;
+            font-family: 'Times New Roman', Times, serif;
+            padding-bottom: 20px;
+            font-size: 50px;
+            
+
+        }
+
+        .class5 {
+            width: 45%;
+            height: auto;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: 'Times New Roman', Times, serif;
+            /* Margin removed so we can perfectly control distance to footer */
+            margin-bottom: 0px;
+            
+        }
+
+        /* Add 60px gap specifically below the first (Design/Video) class5 section */
+        .class55 {
+            margin-bottom: 200px;
+        }
+
+        .logo-circle {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            /* Ensures the image doesn't stretch and fills the circle perfectly */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            /* Neat elevation */
+            border: 4px solid turquoise;
+            /* Nice themed border */
+
+        }
+
+        .class5 p {
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #d1d5db;
+            text-shadow: none;
+            /* Remove hero text shadow */
+            display: block;
+            margin-top: 15px;
+            /* Spacing from header */
+        }
+
+        /* Remove the decorative underline effect from the body paragraphs */
+        .class5 p::after {
+            display: none;
+        }
+
+        .challenge-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #121212;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .challenge-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+            background: linear-gradient(135deg, #7dd3fc 0%, #0369a1 100%);
+        }
+
+        /* --- Animated Footer Styles --- */
+        .animated-footer {
+            width: 100%;
+            /* Increased padding to make the footer taller as requested */
+            padding: 80px 0;
+            /* Exactly 10px distance between the preceding container and this footer */
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* The background property is animated by the colorCycle keyframes */
+            animation: colorCycle 12s infinite alternate linear;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        @keyframes colorCycle {
+            0% {
+                background-color: #0284c7;
+                /* Blue */
+            }
+
+            50% {
+                background-color: #ca8a04;
+                /* Yellow */
+            }
+
+            100% {
+                background-color: #16a34a;
+                /* Green */
+            }
+        }
+
+        .footer-content {
+            text-align: center;
+            color: #ffffff;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .social-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 8px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero-container">
+        <!-- Cartoon Nature Background Image restores CSS background -->
+        <div class="background-image"></div>
+        <div class="overlay"></div>
+
+        <!-- Interactive Glassmorphism Card -->
+        <div class="content-box">
+            <h1>It'z</h1>
+            <h1>Adrin Rithik</h1>
+            <p>a python programmer</p>
+        </div>
+    </div>
+    <div>
+        <h1 style="color: turquoise;display: flex;align-items: center;justify-content: center;margin-top: 60px;">My
+            Profile</h1>
+    </div>
+    <div class="class2"><img src="./sanemi.jpeg" alt="sanemi" class="class2" height="300"></div>
+    <div class="content-box">
+        <p class="class3">Myself J.Adrin Rithik from Kanyakumari,Tamilnadu,India.This is my First Website I have created
+            using Antigravity.
+            I have a little knowledge in python and html.I love eating foods and playing games.
+            I am a big fan of anime and I love to watch anime.My Frist Anime is Naruto and my favorite
+            anime is Dragon ball Super.Now a day I am doing coding because its make me more fun.My favorite
+            programming language is python.I have done more but small python projects.One day I will do
+            a big project using python and that project should be useful for many peoples.</p>
+    </div>
+    <div>
+        <h1 style="color: turquoise;display: flex;align-items: center;justify-content: center;margin-bottom: 60px;">My
+            Skills</h1>
+    </div>
+
+    <div class="class5 class55">
+        <div><video src="./cat.mp4" alt="cat" height="300" loop muted playsinline autoplay
+                style="margin-right:20px ;"></video></div>
+        <div>
+            <h2 class="class4">Web Design</h2>
+            <p>
+                Design focuses on layout, 
+                colors, typography, and user
+                 experience
+                to make the site attractive and easy to use. 
+                Development involves coding
+                and programming
+                to ensure the website works properly across devices
+                 and browsers.
+                Together, they help businesses and individuals present information,
+                services, or products effectively online.
+                A well-designed and developed website improves user engagement,
+                accessibility, and overall performance.</p>
+        </div>
+
+    </div>
+    <div class="class5">
+        <div><img src="./freefire.jpeg" alt="freefire" class="logo-circle" style="margin-right: 20px;" /></div>
+        <div>
+            <h2 class="class4">Playing Games</h2>
+            <p>I like to play Free Fire,
+                and in my gang I’m known as the destroyer because I
+                rush enemies without fear and lead my team to victory;
+                ever since the early days of the game, when everyone landed with basic gear
+                and fought hard to survive,
+                Free Fire has been my favorite battleground to prove my skills.If you want to challenge me in Free Fire
+                then send me a mail</p>
+            <a href="mailto:adrinrithik4@gmail.com?subject=Challenge%20Accepted!&body=Hey%20Adrin,%20I'm%20ready%20to%20challenge%20you%20in%20Free%20Fire!"
+                class="challenge-btn">Challenge Me! 🎮</a>
+
+        </div>
+    </div>
+
+    <!-- Animated Color-Shifting Footer -->
+    <footer class="animated-footer">
+        <div class="footer-content">
+            <p>Hey!!! If your are in any social media then follow me and make me as your friend.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/mr__aeinn__" target="_blank">Instagram</a>
+                <a href="https://linkedin.com/Adrin Rithik J" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
